@@ -1,6 +1,7 @@
 package com.daman.sankydiagramm;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,10 +13,11 @@ import com.highsoft.highcharts.core.*;
 import com.highsoft.highcharts.common.hichartsclasses.*;
 
 class SinkyDiagramView  implements PlatformView {
-
     private  HIChartView hIChartView;
     SinkyDiagramView(@NonNull Context context, int id, @Nullable Map<String, Object> creationParams) {
-            hIChartView = new HIChartView(context);
+        Log.i("asdkjhasjkfhsadkjf","Value of daman is"+creationParams.get("daman"));
+        hIChartView = new HIChartView(context);
+        hIChartView.setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
         hIChartView.plugins = new ArrayList<>(Arrays.asList("sankey"));
         HIOptions options = new HIOptions();
         HITitle title = new HITitle();
@@ -25,7 +27,6 @@ class SinkyDiagramView  implements PlatformView {
         String[] keys = new String[]{"from", "to", "weight"};
         series1.setKeys(new ArrayList<>(Arrays.asList(keys)));
         series1.setName("Sankey demo series");
-
         Object[] object1 = new Object[]{"Brazil", "Portugal", 5};
         Object[] object2 = new Object[]{"Brazil", "France", 1};
         Object[] object3 = new Object[]{"Brazil", "Spain", 1};
@@ -76,8 +77,6 @@ class SinkyDiagramView  implements PlatformView {
         options.setSeries(new ArrayList<>(Arrays.asList(series1)));
         hIChartView.setOptions(options);
     }
-
-
 
     @NonNull
     public View getView() {

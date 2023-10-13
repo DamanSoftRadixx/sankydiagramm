@@ -9,18 +9,17 @@ import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 import java.util.Map;
 
-
 class SankyDiagramFactory extends PlatformViewFactory {
-    Activity activityContext;
-    SankyDiagramFactory(Activity activity)    {
+    Activity activity;
+    SankyDiagramFactory(@org.jetbrains.annotations.Nullable Activity activity)    {
         super(StandardMessageCodec.INSTANCE);
-        activityContext=activity;
+        this.activity=activity;
     }
 
     @NonNull
     @Override
     public PlatformView create(@NonNull Context context, int id, @Nullable Object args) {
         final Map<String, Object> creationParams = (Map<String, Object>) args;
-        return new SinkyDiagramView(activityContext, id, creationParams);
+        return new SinkyDiagramView(activity, id, creationParams);
     }
 }

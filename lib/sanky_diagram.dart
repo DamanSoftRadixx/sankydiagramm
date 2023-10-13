@@ -18,6 +18,7 @@ class _SankyDiagramState extends State<SankyDiagram> {
     const String viewType = '<platform-view-type-sanky-diagram>';
 // Pass parameters to the platform side.
     final Map<String, dynamic> creationParams = <String, dynamic>{
+      "daman":"Testing"
     };
 
     return Scaffold(
@@ -25,7 +26,7 @@ class _SankyDiagramState extends State<SankyDiagram> {
       body: Container(
         color: Colors.teal,
         padding: EdgeInsets.symmetric(vertical: 18,horizontal: 10),
-       /* child: PlatformViewLink(
+        child: PlatformViewLink(
           viewType: viewType,
           surfaceFactory:
               (context, controller) {
@@ -49,13 +50,13 @@ class _SankyDiagramState extends State<SankyDiagram> {
               ..addOnPlatformViewCreatedListener(params.onPlatformViewCreated)
               ..create();
           },
-        ),*/
-         child: AndroidView(
+        ),
+         /*child: AndroidView(
           viewType: viewType,
           layoutDirection: TextDirection.ltr,
           creationParams: creationParams,
           creationParamsCodec: const StandardMessageCodec(),
-        ),
+        ),*/
       ),
     );
   }

@@ -10,16 +10,16 @@ import io.flutter.plugin.platform.PlatformViewFactory;
 import java.util.Map;
 
 class NativeViewFactory extends PlatformViewFactory {
-    Activity activityContext;
-    NativeViewFactory(@Nullable  Activity contextMainActivity) {
+
+    NativeViewFactory() {
         super(StandardMessageCodec.INSTANCE);
-        activityContext=contextMainActivity;
+
     }
 
     @NonNull
     @Override
     public PlatformView create(@NonNull Context context, int id, @Nullable Object args) {
         final Map<String, Object> creationParams = (Map<String, Object>) args;
-        return new NativeView(activityContext, id, creationParams);
+        return new NativeView(context, id, creationParams);
     }
 }

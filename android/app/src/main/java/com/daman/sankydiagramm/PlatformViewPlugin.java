@@ -6,7 +6,7 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 public class PlatformViewPlugin implements FlutterPlugin {
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
-        binding.getPlatformViewRegistry().registerViewFactory("<platform-view-type>", new NativeViewFactory(null));
+        binding.getPlatformViewRegistry().registerViewFactory("<platform-view-type>", new NativeViewFactory());
         binding.getPlatformViewRegistry().registerViewFactory("<platform-view-type-sanky-diagram>", new SankyDiagramFactory(null));
     }
 

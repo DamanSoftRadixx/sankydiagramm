@@ -16,7 +16,7 @@ import io.flutter.embedding.engine.FlutterEngine;
         flutterEngine
                 .getPlatformViewsController()
                 .getRegistry()
-                .registerViewFactory("<platform-view-type>", new NativeViewFactory(getActivity()));
+                .registerViewFactory("<platform-view-type>", new NativeViewFactory());
         flutterEngine
                 .getPlatformViewsController()
                 .getRegistry()
